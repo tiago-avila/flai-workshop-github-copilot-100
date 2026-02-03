@@ -25,7 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to fetch activities from API
   async function fetchActivities() {
     try {
-      const response = await fetch("/activities");
+      const response = await fetch("/activities", {
+        cache: "no-cache",
+        headers: {
+          "Cache-Control": "no-cache"
+        }
+      });
       const activities = await response.json();
 
       // Clear loading message
@@ -46,7 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
         let participantsHTML = '';
         if (details.participants.length > 0) {
           const participantItems = details.participants
-            .map(email => `<li>${email}</li>`)
+            .map(email => `
+              <li>
+                <span class="participant-email">${email}</span>
+                <button class="delete-btn" data-activity="${name}" data-email="${email}" title="Remove participant">🗑️</button>
+              </li>
+            `)
             .join('');
           participantsHTML = `
             <div class="participants-section">
@@ -151,6 +161,42 @@ document.addEventListener("DOMContentLoaded", () => {
     input.addEventListener("input", () => {
       input.setCustomValidity("");
     });
+  });
+
+  // Handle delete button clicks using event delegation
+  activitiesList.addEventListener("click", async (event) => {
+    if (event.target.classList.contains("delete-btn")) {
+      const button = event.target;
+      const activity = button.getAttribute("data-activity");
+      const email = button.getAttribute("data-email");
+
+      // Confirm deletion
+      if (!confirm(`Are you sure you want to remove ${email} from ${activity}?`)) {
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `/activities/${encodeURIComponent(activity)}/signup?email=${encodeURIComponent(email)}`,
+          {
+            method: "DELETE",
+          }
+        );
+
+        const result = await response.json();
+
+        if (response.ok) {
+          showMessage(messageDiv, result.message, "success");
+          // Refresh activities to show updated list
+          await fetchActivities();
+        } else {
+          showMessage(messageDiv, result.detail || "An error occurred", "error");
+        }
+      } catch (error) {
+        showMessage(messageDiv, "Failed to remove participant. Please try again.", "error");
+        console.error("Error removing participant:", error);
+      }
+    }
   });
 
   // Initialize app
