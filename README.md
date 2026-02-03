@@ -1,119 +1,35 @@
-# Mergington High School Activities Sign-Up System
+<div align="center">
 
-<img src="https://octodex.github.com/images/Professortocat_v2.png" align="right" height="200px" />
+# 🎉 Congratulations tiago-avila! 🎉
 
-A modern web application that allows students of Mergington High School to browse and sign up for extracurricular activities. Built with FastAPI backend and vanilla JavaScript frontend.
+<img src="https://octodex.github.com/images/welcometocat.png" height="200px" />
 
-## 🎓 Features
+### 🌟 You've successfully completed the exercise! 🌟
 
-- **Browse Activities**: View all available extracurricular activities with detailed information
-- **Real-time Availability**: See current enrollment numbers and available spots
-- **Smart Sign-Up**: Register for activities with email validation (@mergington.edu only)
-- **Duplicate Prevention**: Automatically prevents signing up for the same activity twice
-- **Capacity Management**: Full activities are automatically disabled for new sign-ups
-- **Responsive Design**: Beautiful gradient UI that works on desktop and mobile devices
-- **Email Validation**: Real-time validation ensures only school email addresses are accepted
-- **Confirmation Dialogs**: Prevents accidental sign-ups with confirmation prompts
+## 🚀 Share Your Success!
 
-## 📋 Available Activities
+**Show off your new skills and inspire others!**
 
-- **Chess Club** - Learn strategies and compete in tournaments
-- **Programming Class** - Build software projects and learn coding
-- **Gym Class** - Physical education and sports activities
-- **Drama Club** - Theater performances and acting workshops
-- **Debate Team** - Develop critical thinking and public speaking
-- **Art Club** - Explore painting, drawing, and sculpture
+<a href="https://twitter.com/intent/tweet?text=I%20just%20completed%20the%20%22Getting%20Started%20with%20GitHub%20Copilot%22%20GitHub%20Skills%20hands-on%20exercise!%20%F0%9F%8E%89%0A%0Ahttps%3A%2F%2Fgithub.com%2Ftiago-avila%2Fflai-workshop-github-copilot-100%0A%0A%23GitHubSkills%20%23OpenSource%20%23GitHubLearn" target="_blank" rel="noopener noreferrer">
+  <img src="https://img.shields.io/badge/Share%20on%20X-1da1f2?style=for-the-badge&logo=x&logoColor=white" alt="Share on X" />
+</a>
+<a href="https://bsky.app/intent/compose?text=I%20just%20completed%20the%20%22Getting%20Started%20with%20GitHub%20Copilot%22%20GitHub%20Skills%20hands-on%20exercise!%20%F0%9F%8E%89%0A%0Ahttps%3A%2F%2Fgithub.com%2Ftiago-avila%2Fflai-workshop-github-copilot-100%0A%0A%23GitHubSkills%20%23OpenSource%20%23GitHubLearn" target="_blank" rel="noopener noreferrer">
+  <img src="https://img.shields.io/badge/Share%20on%20Bluesky-0085ff?style=for-the-badge&logo=bluesky&logoColor=white" alt="Share on Bluesky" />
+</a>
+<a href="https://www.linkedin.com/feed/?shareActive=true&text=I%20just%20completed%20the%20%22Getting%20Started%20with%20GitHub%20Copilot%22%20GitHub%20Skills%20hands-on%20exercise!%20%F0%9F%8E%89%0A%0Ahttps%3A%2F%2Fgithub.com%2Ftiago-avila%2Fflai-workshop-github-copilot-100%0A%0A%23GitHubSkills%20%23OpenSource%20%23GitHubLearn" target="_blank" rel="noopener noreferrer">
+  <img src="https://img.shields.io/badge/Share%20on%20LinkedIn-0077b5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Share on LinkedIn" />
+</a>
 
-## 🚀 Getting Started
+### 🎯 What's Next?
 
-### Prerequisites
+**Keep the momentum going!**
 
-- Python 3.13 or higher
-- pip package manager
+[![](https://img.shields.io/badge/Return%20to%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/tiago-avila/flai-workshop-github-copilot-100/issues/1)
+[![GitHub Skills](https://img.shields.io/badge/Explore%20GitHub%20Skills-000000?style=for-the-badge&logo=github&logoColor=white)](https://learn.github.com/skills)
 
-### Installation
+*There's no better way to learn than building things!* 🚀
 
-1. Clone the repository:
-```bash
-git clone https://github.com/tiago-avila/flai-workshop-github-copilot-100.git
-cd flai-workshop-github-copilot-100
-```
-
-2. Install dependencies:
-```bash
-pip install -r requirements.txt
-pip install 'pydantic[email]'
-```
-
-### Running the Application
-
-1. Start the server:
-```bash
-cd src
-uvicorn app:app --reload --host 0.0.0.0 --port 8000
-```
-
-2. Open your browser and navigate to:
-```
-http://localhost:8000
-```
-
-The application will automatically reload when you make changes to the code.
-
-## 🧪 Running Tests
-
-Run the test suite with pytest:
-```bash
-pytest tests/ -v
-```
-
-## 🛠️ Technology Stack
-
-- **Backend**: FastAPI (Python)
-- **Frontend**: Vanilla JavaScript, HTML5, CSS3
-- **Server**: Uvicorn ASGI server
-- **Validation**: Pydantic with email validation
-- **Testing**: pytest with FastAPI TestClient
-
-## 📁 Project Structure
-
-```
-flai-workshop-github-copilot-100/
-├── src/
-│   ├── app.py              # FastAPI backend application
-│   └── static/
-│       ├── index.html      # Main HTML page
-│       ├── app.js          # Frontend JavaScript
-│       └── styles.css      # Styling
-├── tests/
-│   └── test_app.py         # Unit tests
-├── requirements.txt        # Python dependencies
-├── pytest.ini             # Pytest configuration
-└── README.md              # This file
-```
-
-## 🔌 API Endpoints
-
-### GET `/activities`
-Returns all available activities with their details.
-
-### POST `/activities/{activity_name}/signup`
-Sign up a student for an activity.
-- **Body**: `{"email": "student@mergington.edu"}`
-- **Validations**: Mergington email, no duplicates, capacity check
-
-### DELETE `/activities/{activity_name}/signup`
-Cancel a student's sign-up for an activity.
-- **Query Param**: `email=student@mergington.edu`
-
-## 🎨 Features Implemented with GitHub Copilot
-
-This project was enhanced using various GitHub Copilot features including:
-- Code generation and completion
-- Test creation
-- Documentation writing
-- Error handling improvements
-- API endpoint development
+</div>
 
 ---
 
