@@ -42,12 +42,36 @@ document.addEventListener("DOMContentLoaded", () => {
         
         activityCard.className = `activity-card ${isFull ? "full" : ""}`;
 
+        // Build participants list HTML
+        let participantsHTML = '';
+        if (details.participants.length > 0) {
+          const participantItems = details.participants
+            .map(email => `<li>${email}</li>`)
+            .join('');
+          participantsHTML = `
+            <div class="participants-section">
+              <strong>👥 Participants:</strong>
+              <ul class="participants-list">
+                ${participantItems}
+              </ul>
+            </div>
+          `;
+        } else {
+          participantsHTML = `
+            <div class="participants-section">
+              <strong>👥 Participants:</strong>
+              <p class="no-participants">Be the first to sign up!</p>
+            </div>
+          `;
+        }
+
         activityCard.innerHTML = `
           <h4>${name}</h4>
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Capacity:</strong> ${details.participants.length}/${details.max_participants} students enrolled</p>
           <p><strong>Status:</strong> <span class="${isFull ? 'status-full' : 'status-available'}">${isFull ? "FULL" : `${spotsLeft} spots left`}</span></p>
+          ${participantsHTML}
         `;
 
         activitiesList.appendChild(activityCard);
